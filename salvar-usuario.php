@@ -3,10 +3,21 @@
         case 'cadastrar':
             $NOME = $_POST['NOME'];
             $DATA_NASC = $_POST['DATA_NASC'];
+            $NUMERO = $_POST['NUMERO'];
 
             $sql = "INSERT INTO CONTATO(NOME, DATA_NASC) VALUES ('{$NOME}', '{$DATA_NASC}')";
             $res = $conn->query($sql);
-            if($res==true){
+            if ($conn->query($sql) === TRUE) {
+                $last_id = $conn->insert_id;
+                if($last_id == 0 || $last_id == false) {
+                    $last_id = 1;
+                }
+              } 
+            
+            $sqlTelefone = "INSERT INTO TELEFONE VALUES (NULL, {$last_id}, {$NUMERO});";
+            $resTelefone = $conn->query($sqlTelefone);
+
+            if($res==true & $sqlTelefone == true){
                 print "<script>alert('Usuário cadastrado com sucesso');</script>";
                 print "<script>location.href='?page=listar' </script>";
             } else {
@@ -17,13 +28,17 @@
         case 'editar':
             $NOME = $_POST['NOME'];
             $DATA_NASC = $_POST['DATA_NASC'];
-            $ID = $_POST['ID'];
+            $ID = $_POST['ID'] + 1;
+            $NUMERO = $_POST['NUMERO'];
             
             $sql = "UPDATE CONTATO SET NOME='{$NOME}', DATA_NASC='{$DATA_NASC}' WHERE ID='".$ID."'";
+            $sqlTelefone = "UPDATE TELEFONE SET NUMERO='{$NUMERO}' WHERE IDCONTATO ='".$ID."';";
+            $res = $conn->query($sqlTelefone);
             $res = $conn->query($sql);
             $ID = $_POST['ID'];
             
             if($res==true){
+                echo $sqlTelefone;
                 print "<script>alert('Usuário Editado com sucesso');</script>";
                 print "<script>location.href='?page=listar' </script>";
             } else {
@@ -35,10 +50,19 @@
             break;
         case 'excluir':
             $sql = "DELETE FROM CONTATO WHERE ID=".$_REQUEST["ID"];
+            $sql = "DELETE FROM TELEFONE WHERE IDCONTATO=".$_REQUEST["ID"];
+            $sqlExcluir = "SELECT *, NOW() FROM CONTATO WHERE ID=".$_REQUEST["ID"];
+            $resExcluir = mysqli_query($conn, $sqlExcluir);
+            
+            $row = mysqli_fetch_assoc($resExcluir);
+
             $res = $conn->query($sql);
-            echo $sql;
             
             if($res==true){
+                $myfile = fopen("excluidos.txt", "a+") or die("Unable to open file!");
+                $txt =  "Nome: " . $row['NOME'] . "\n" . "Hora: " . $row['NOW()'] .  " \n\n";
+                fwrite($myfile, $txt);
+                fclose($myfile);
                 print "<script>alert('Usuário Excluído com sucesso');</script>";
                 print "<script>location.href='?page=listar' </script>";
             } else {

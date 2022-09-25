@@ -1,6 +1,6 @@
 <h1>Listar Usuários</h1>
 <?php 
-    $sql = "SELECT * FROM CONTATO";
+    $sql = "SELECT C.NOME, C.DATA_NASC, C.ID, T.NUMERO, T.IDCONTATO FROM CONTATO C INNER JOIN TELEFONE T ON C.ID = T.IDCONTATO;";
     $res = $conn->query($sql);
 
     $qtd = $res->num_rows;
@@ -10,14 +10,14 @@
         print "<tr>";
         print "<th>Nome</th>";
         print "<th>Data de Nascimento</th>";
-        print "<th>ID</th>";
+        print "<th>Telefones</th>";
         print "<th>Ações</th>";
         print "</tr>";
         while($row = $res->fetch_object()){
             print "<tr>";
             print "<td>".$row->NOME."</td>";
             print "<td>".$row->DATA_NASC."</td>";
-            print "<td>".$row->ID."</td>";
+            print "<td>".$row->NUMERO."</td>";
             print "<td>
                 <button class='btn btn-success' onclick=\"location.href='?page=editar&NOME=".$row->NOME."';\">
                 Editar

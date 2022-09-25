@@ -16,6 +16,10 @@
         <input type="date" name='DATA_NASC' value="<?php print @$row->DATA_NASC; ?>" class='form-control' placeholder="DD/MM/AAAA">
     </div>
     <div class="mb-3">
+        <label>Telefones</label>
+        <input type="text" name='NUMERO' required class='form-control' placeholder="Insira seus números de telefone">
+    </div>
+    <div class="mb-3">
         <input name="ID" type="hidden" value ="<?php print @$row->ID; ?> ">
     </div>
     <div class="mb-3">
