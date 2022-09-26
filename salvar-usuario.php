@@ -43,16 +43,19 @@
 
             break;
         case 'excluir':
-            $sql = "DELETE FROM CONTATO WHERE ID=".$_REQUEST["ID"];
-            $sql = "DELETE FROM TELEFONE WHERE IDCONTATO=".$_REQUEST["ID"];
             $sqlExcluir = "SELECT *, NOW() FROM CONTATO WHERE ID=".$_REQUEST["ID"];
             $resExcluir = mysqli_query($conn, $sqlExcluir);
             
+            $sql = "DELETE FROM TELEFONE WHERE IDCONTATO=" . $_REQUEST["ID"] . ";";
+            $res = $conn->query($sql);
+
+            $sql = "DELETE FROM CONTATO WHERE ID=" . $_REQUEST["ID"] . ";";
+            $res = $conn->query($sql);
+
+            
             $row = mysqli_fetch_assoc($resExcluir);
 
-            $res = $conn->query($sql);
-            
-            if($res==true){
+            if($sql){
                 $myfile = fopen("excluidos.txt", "a+") or die("Unable to open file!");
                 $txt =  "Nome: " . $row['NOME'] . "\n" . "Hora: " . $row['NOW()'] .  " \n\n";
                 fwrite($myfile, $txt);
