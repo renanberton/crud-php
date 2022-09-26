@@ -7,7 +7,7 @@ Instruções para iniciar o projeto localmente
 2º - Caso não tenha instalado, basta baixar o programa e instalar o mesmo: <br>
 Link para Download: https://xampp.br.uptodown.com/windows.<br>
 3º - Clonar o repositório no Github no link: https://github.com/renanberton/crud-php e extrair o projeto dentro da pasta<br>
-do XAMPP, na pasta htdocs, que é a pasta responsável por executar os projetos ali contidos.
+do XAMPP, na pasta htdocs, que é a pasta responsável por executar os projetos ali contidos.<br>
 4º - Executar o XAMPP.<br>
 5º - Acessar a url http://localhost/phpmyadmin para ter acesso ao banco de dados.<br>
 6º - Clicar em novo para criar um novo banco de dados, com o nome contatos.<br>
