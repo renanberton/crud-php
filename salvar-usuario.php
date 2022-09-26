@@ -56,7 +56,7 @@
             $row = mysqli_fetch_assoc($resExcluir);
 
             if($sql){
-                $myfile = fopen("excluidos.txt", "a+") or die("Unable to open file!");
+                $myfile = fopen("./excluidos/excluidos.txt", "a+") or die("Unable to open file!");
                 $txt =  "Nome: " . $row['NOME'] . "\n" . "Hora: " . $row['NOW()'] .  " \n\n";
                 fwrite($myfile, $txt);
                 fclose($myfile);
