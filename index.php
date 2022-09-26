@@ -9,7 +9,6 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Cadastro de Contatos</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -58,7 +57,7 @@
                 include("listagem-pesquisa.php");
             break;
             default:
-                print '<h1>Seja bem-vindo ao Sistema de Cadastro de Usuários</h1>';
+                print '<h1 style="text-align: center">Seja bem-vindo ao Sistema de Cadastro de Usuários</h1>';
 
     }
 ?>

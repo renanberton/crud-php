@@ -7,12 +7,7 @@
 
             $sql = "INSERT INTO CONTATO(NOME, DATA_NASC) VALUES ('{$NOME}', '{$DATA_NASC}')";
             $res = $conn->query($sql);
-            if ($conn->query($sql) === TRUE) {
-                $last_id = $conn->insert_id;
-                if($last_id == 0 || $last_id == false) {
-                    $last_id = 1;
-                }
-              } 
+            $last_id = $conn->insert_id;
             
             $sqlTelefone = "INSERT INTO TELEFONE VALUES (NULL, {$last_id}, '{$NUMERO}');";
             $resTelefone = $conn->query($sqlTelefone);
@@ -28,7 +23,7 @@
         case 'editar':
             $NOME = $_POST['NOME'];
             $DATA_NASC = $_POST['DATA_NASC'];
-            $ID = $_POST['ID'] + 1;
+            $ID = $_POST['ID'];
             $NUMERO = $_POST['NUMERO'];
             
             $sql = "UPDATE CONTATO SET NOME='{$NOME}', DATA_NASC='{$DATA_NASC}' WHERE ID='".$ID."'";
