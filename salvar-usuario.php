@@ -14,7 +14,7 @@
                 }
               } 
             
-            $sqlTelefone = "INSERT INTO TELEFONE VALUES (NULL, {$last_id}, {$NUMERO});";
+            $sqlTelefone = "INSERT INTO TELEFONE VALUES (NULL, {$last_id}, '{$NUMERO}');";
             $resTelefone = $conn->query($sqlTelefone);
 
             if($res==true & $sqlTelefone == true){
@@ -38,7 +38,6 @@
             $ID = $_POST['ID'];
             
             if($res==true){
-                echo $sqlTelefone;
                 print "<script>alert('Usuário Editado com sucesso');</script>";
                 print "<script>location.href='?page=listar' </script>";
             } else {

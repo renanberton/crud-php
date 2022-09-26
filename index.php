@@ -24,6 +24,9 @@
         <li class="nav-item">
           <a class="nav-link" href="?page=listar">Listar Usuários</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="?page=pesquisar">Pesquisar Usuários</a>
+        </li>
       </ul>
     </div>
   </div>
@@ -47,6 +50,12 @@
             break;
             case "editar":
                 include("editar-usuario.php");
+            break;
+            case "pesquisar":
+                include("pesquisar-usuario.php");
+            break;
+            case "listagem-pesquisa":
+                include("listagem-pesquisa.php");
             break;
             default:
                 print '<h1>Seja bem-vindo ao Sistema de Cadastro de Usuários</h1>';
