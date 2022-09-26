@@ -1,4 +1,4 @@
-# crud-php
+# Sistema de Cadastro de Contatos
 Sistema web desenvolvido com PHP e MySQL para cadastro de contatos.
 
 Instruções para iniciar o projeto localmente
