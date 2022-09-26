@@ -3,9 +3,11 @@ Sistema web desenvolvido com PHP e MySQL para cadastro de contatos.
 
 Instruções para iniciar o projeto localmente
 
-1º - Certificar-se que de sua máquina tenha instalado o XAMPP, usado para rodar projetos via servidor WEB. <br>
-2º - Caso não tenha instalado, basta baixar o programa e instalar o mesmo, link para download: https://xampp.br.uptodown.com/windows.<br>
-3º - Clonar o repositório no Github, no link: https://github.com/renanberton/crud-php e extrair o projeto dentro da pasta.
+1º - Verificar se a sua máquina tem XAMPP instalado, o mesmo é usado para rodar projetos via servidor WEB. <br>
+2º - Caso não tenha instalado, basta baixar o programa e instalar o mesmo: <br>
+Link para Download: https://xampp.br.uptodown.com/windows.<br>
+3º - Clonar o repositório no Github,<br>
+no link: https://github.com/renanberton/crud-php e extrair o projeto dentro da pasta.<br>
 do XAMPP, na pasta htdocs, que é a pasta responsável por executar os projetos ali contidos.
 4º - Executar o XAMPP.<br>
 5º - Acessar a url http://localhost/phpmyadmin para ter acesso ao banco de dados.<br>
